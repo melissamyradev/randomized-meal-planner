@@ -1,0 +1,51 @@
+/* ========================================
+Overlay / Pop up
+=========================================== */
+
+.overlay {
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: rgba(8, 8, 8, 0.4);
+}
+
+.popUp, .overlay {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.popUp {
+  width: 90%;
+  max-width: 350px;
+  height: 150px;
+  background: #ececec;
+  flex-direction: column;
+  border-radius: 5px;
+  animation: appear .2s forwards;
+  transition: transform .5s, opacity .5s;
+  & p {
+  font-size: 1.1rem;
+  color: #363636;
+  }
+  @include mq(768px) {
+    height: 180px;
+  }
+}
+
+#name {
+  outline: none;
+  border: none;
+  background: #d7d7d7;
+  height: 30px;
+  width: 60%;
+  text-align: center;
+}
+
+.enter {
+  font-size: .9rem;
+  margin-top: 15px;
+  outline: none;
+}

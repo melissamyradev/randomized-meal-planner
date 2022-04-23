@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weekly Meal Planner</title>
+    <link rel="stylesheet" href="https://necolas.github.io/normalize.css/8.0.1/normalize.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Varela+Round|Courgette&display=swap">
+    <link rel="stylesheet" href="css/style.css">
+  </head>
+  <body>
+    <main>
+      <input type="checkbox" id="viewToday">
+      <input type="checkbox" id="viewWeekly">
+      <h1 class="headline"></h1>
+      <p class="tagline"></p>
+      <label for="viewToday" class="btn" id="viewTodayButton">View Today's Plan</label><br>
+      <label for="viewWeekly" class="btn" id="viewWeeklyButton">View Weekly Plan</label>
+      <section class="plan">
+        <ul id="meals"></ul>
+        <p class="shuffle-wording">Don't like these options?</p>
+        <button class="btn shuffle">Shuffle</button>
+      </section>
+      <section class="plan_week">
+        <div class="meals-weekly-container">
+          <div><p class="plan_week-days">Monday</p><ul class="meals-weekly top" id="mon"></ul></div>
+          <div><p class="plan_week-days">Tuesday</p><ul class="meals-weekly top" id="tues"></ul></div>
+          <div><p class="plan_week-days">Wednesday</p><ul class="meals-weekly top" id="wed"></ul></div>
+          <div><p class="plan_week-days">Thursday</p><ul class="meals-weekly top" id="thurs"></ul></div>
+          <div><p class="plan_week-days">Friday</p><ul class="meals-weekly" id="fri"></ul></div>
+          <div><p class="plan_week-days">Saturday</p><ul class="meals-weekly" id="sat"></ul></div>
+          <div><p class="plan_week-days">Sunday</p><ul class="meals-weekly" id="sun"></ul></div>
+        </div>
+        <p class="shuffle-wording">Wanna mix them up again?</p>
+        <button class="btn shuffle">Shuffle</button><br>
+        <a href="#"><button class="btn to-top">to Top</button></a>
+      </section>
+    </main>
+    <script src="app.js"></script>
+  </body>
+</html>

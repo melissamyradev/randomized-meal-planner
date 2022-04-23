@@ -1,0 +1,207 @@
+/* ========================================
+Main Content - Meal Plans Board
+=========================================== */
+
+.plan, .plan_week {
+  text-align: center;
+  display: none;
+  transition: transform .5s;
+}
+
+.shuffle {
+  font-size: .8em;
+  border-color: transparent;
+  background-color: $secondary;
+  padding: 5px 10px;
+  &:hover {
+    background: transparent;
+    border-color: white;
+  }
+  &-wording {
+    font-size: .9em;
+    margin: 0 0 10px;
+  }
+}
+
+.to-top {
+  color: $text;
+  margin-top: 40px;
+  border-width: 0 0 2px;
+  border-color: $text;
+  border-style: solid;
+  border-radius: 0;
+  padding: 0;
+  font-size: .8rem;
+  @include mq(1024px) {
+    display: none;
+  }
+}
+
+#viewToday, #viewWeekly {
+  display: none;
+} 
+
+#viewWeeklyButton {
+  margin-top: 15px;
+}
+
+#viewToday:checked ~ .plan {
+  display: block;
+  animation: slideUp .5s forwards;
+  @include mq(1024px) {
+    animation: slideUpWide .5s forwards;
+  }
+}
+
+#viewToday:checked ~ .headline,
+#viewWeekly:checked ~ .headline {
+  transform: translateY(-15px) scale(.7);
+  @include mq(768px) {
+    transform: translateY(-45px) scale(.6);
+  }
+  @include mq(1024px) {
+    transform: translateY(-80px) scale(.5);
+  }
+}
+
+#viewToday:checked ~ .tagline,
+#viewWeekly:checked ~ .tagline {
+  transform: translateY(-40px);
+  @include mq(768px) {
+    transform: translateY(-70px);
+  }
+  @include mq(1024px) {
+    transform: translateY(-120px);
+  }
+}
+
+#viewToday:checked ~ .btn,
+#viewWeekly:checked ~ .btn {
+  transform: translateY(-50px);
+  padding: 5px 10px;
+  border: none;
+  background-color: transparent;
+  @include mq(768px) {
+    transform: translateY(-70px);
+  }
+  @include mq(1024px) {
+    transform: translateY(-130px);
+  }
+}
+
+#viewWeekly:checked ~ .plan_week {
+  display: block;
+  animation: slideUp-week .5s forwards;
+  @include mq(1024px) {
+    animation: slideUpWide-week .5s forwards;
+  }
+}
+
+#viewToday:checked ~ .btn:nth-of-type(2) {
+  opacity: 0;
+  display: none;
+  position: fixed;
+}
+
+#viewWeekly:checked ~ .btn:nth-of-type(1) {
+  opacity: 0;
+  display: none;
+  position: fixed;
+}
+
+#viewWeekly:checked ~ .btn:nth-of-type(2) {
+  transform: translateY(-80px);
+  @include mq(768px) {
+    transform: translateY(-100px);
+  }
+  @include mq(1024px) {
+    transform: translateY(-160px);
+  }
+}
+
+#meals {
+  margin: 0 auto 30px;
+  padding: 35px 25px 25px;
+  position: relative;
+  &::before {
+    content: '';
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 10px;
+    background: white;
+  }
+  @include mq(768px) {
+    min-height: 200px;
+  }
+  @include mq(1024px) {
+    margin: 0 auto 50px;
+  }
+}
+
+#meals,
+.meals-weekly-container {
+  max-width: 350px;
+}
+
+#meals,
+.meals-weekly-container div {
+  border: 4px solid white;
+}
+
+.meals-weekly {
+  width: 100%;
+  min-height: 230px;
+  padding: 65px 20px 20px;
+  @include mq(768px) {
+    height: 250px;
+  }
+  @include mq(1024px) {
+    height: 310px;
+  }
+}
+
+.meals-weekly-container {
+  margin: 0 auto 40px;
+  @include mq(768px) {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    max-width: 100%;
+    margin: 0 auto 10px;
+  }
+  @include mq(1024px) {
+    max-width: 1300px;
+  }
+  & div {
+  margin-bottom: 20px;
+  position: relative;
+    @include mq(768px) {
+      width: calc(100% / 2 - 20px);
+      margin: 0 10px 30px;
+    }
+    @include mq(1024px) {
+      width: calc(100% / 4 - 20px);
+      margin: 0 10px 40px;
+    }
+  }
+}
+
+.plan_week-days {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: $primary;
+  background-color: white;
+  width: 100%;
+  font-size: 1.4em;
+  font-weight: 700;
+  margin: 0;
+  padding: 8px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  @extend %heading;
+}

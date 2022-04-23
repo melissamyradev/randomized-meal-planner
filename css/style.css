@@ -1,0 +1,517 @@
+/* ========================================
+  Keyframes
+=========================================== */
+@keyframes slideUp {
+  0% {
+    transform: translateY(0);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(-30px);
+    opacity: 1;
+  }
+}
+@keyframes slideUp-week {
+  0% {
+    transform: translateY(0);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(-60px);
+    opacity: 1;
+  }
+}
+@keyframes slideUpWide {
+  0% {
+    transform: translateY(0);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(-95px);
+    opacity: 1;
+  }
+}
+@keyframes slideUpWide-week {
+  0% {
+    transform: translateY(0);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(-120px);
+    opacity: 1;
+  }
+}
+@keyframes slideDown {
+  0% {
+    transform: translateY(-50px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+@keyframes fade {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+@keyframes appear {
+  0% {
+    opacity: 0;
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+/* ========================================
+  Base Element Styles
+=========================================== */
+html {
+  scroll-behavior: smooth;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background: #1e6cc5;
+  color: white;
+  font-size: 16px;
+  font-family: "Varela Round", sans-serif;
+  padding: 5% 5% 0;
+}
+
+main {
+  text-align: center;
+}
+
+ul {
+  list-style: none;
+  padding-left: 0;
+  margin: 0;
+}
+
+ul li {
+  font-size: 1rem;
+  padding: 10px;
+  border-radius: 3px;
+  margin: 0 auto;
+  width: 90%;
+}
+ul li:not(:last-of-type) {
+  border-bottom: 2px solid #418de4;
+}
+@media (min-width: 768px) {
+  ul li {
+    font-size: 1.1em;
+  }
+}
+
+/* ========================================
+  Base Page Element Styles
+=========================================== */
+main {
+  padding: 0 10px;
+}
+
+.plan_week-days, .headline {
+  font-family: "Courgette", sans-serif;
+  font-size: 2.5em;
+}
+
+.tagline, .headline {
+  margin-bottom: 30px;
+  transition: transform 0.5s;
+}
+
+@media (min-width: 768px) {
+  .headline {
+    font-size: 3.75em;
+  }
+}
+@media (min-width: 1024px) {
+  .headline {
+    font-size: 5.2em;
+    margin-bottom: s40px;
+  }
+}
+
+.tagline {
+  font-size: 0.9em;
+  line-height: 1.3;
+  color: #b1d0f4;
+  max-width: 270px;
+  margin-left: auto;
+  margin-right: auto;
+}
+@media (min-width: 768px) {
+  .tagline {
+    font-size: 1.15em;
+    max-width: 500px;
+  }
+}
+@media (min-width: 1024px) {
+  .tagline {
+    margin-bottom: 40px;
+    font-size: 1.2em;
+    line-height: 1.5;
+  }
+}
+.tagline span {
+  display: block;
+}
+@media (min-width: 768px) {
+  .tagline span {
+    display: inline;
+  }
+}
+
+.btn {
+  display: inline-block;
+  outline: none;
+  cursor: pointer;
+  text-transform: uppercase;
+  padding: 10px 15px;
+  border-radius: 20px;
+  border: 2px solid;
+  color: white;
+  background: transparent;
+  font-size: 0.7em;
+  transition: background 0.5s, border-color 0.5s, transform 0.5s;
+}
+.btn:hover {
+  background: #418de4;
+  border-color: transparent;
+}
+@media (min-width: 768px) {
+  .btn {
+    border: 4px solid;
+    font-size: 0.9em;
+  }
+}
+
+/* ========================================
+Main Content - Meal Plans Board
+=========================================== */
+.plan, .plan_week {
+  text-align: center;
+  display: none;
+  transition: transform 0.5s;
+}
+
+.shuffle {
+  font-size: 0.8em;
+  border-color: transparent;
+  background-color: #418de4;
+  padding: 5px 10px;
+}
+.shuffle:hover {
+  background: transparent;
+  border-color: white;
+}
+.shuffle-wording {
+  font-size: 0.9em;
+  margin: 0 0 10px;
+}
+
+.to-top {
+  color: #b1d0f4;
+  margin-top: 40px;
+  border-width: 0 0 2px;
+  border-color: #b1d0f4;
+  border-style: solid;
+  border-radius: 0;
+  padding: 0;
+  font-size: 0.8rem;
+}
+@media (min-width: 1024px) {
+  .to-top {
+    display: none;
+  }
+}
+
+#viewToday, #viewWeekly {
+  display: none;
+}
+
+#viewWeeklyButton {
+  margin-top: 15px;
+}
+
+#viewToday:checked ~ .plan {
+  display: block;
+  animation: slideUp 0.5s forwards;
+}
+@media (min-width: 1024px) {
+  #viewToday:checked ~ .plan {
+    animation: slideUpWide 0.5s forwards;
+  }
+}
+
+#viewToday:checked ~ .headline,
+#viewWeekly:checked ~ .headline {
+  transform: translateY(-15px) scale(0.7);
+}
+@media (min-width: 768px) {
+  #viewToday:checked ~ .headline,
+#viewWeekly:checked ~ .headline {
+    transform: translateY(-45px) scale(0.6);
+  }
+}
+@media (min-width: 1024px) {
+  #viewToday:checked ~ .headline,
+#viewWeekly:checked ~ .headline {
+    transform: translateY(-80px) scale(0.5);
+  }
+}
+
+#viewToday:checked ~ .tagline,
+#viewWeekly:checked ~ .tagline {
+  transform: translateY(-40px);
+}
+@media (min-width: 768px) {
+  #viewToday:checked ~ .tagline,
+#viewWeekly:checked ~ .tagline {
+    transform: translateY(-70px);
+  }
+}
+@media (min-width: 1024px) {
+  #viewToday:checked ~ .tagline,
+#viewWeekly:checked ~ .tagline {
+    transform: translateY(-120px);
+  }
+}
+
+#viewToday:checked ~ .btn,
+#viewWeekly:checked ~ .btn {
+  transform: translateY(-50px);
+  padding: 5px 10px;
+  border: none;
+  background-color: transparent;
+}
+@media (min-width: 768px) {
+  #viewToday:checked ~ .btn,
+#viewWeekly:checked ~ .btn {
+    transform: translateY(-70px);
+  }
+}
+@media (min-width: 1024px) {
+  #viewToday:checked ~ .btn,
+#viewWeekly:checked ~ .btn {
+    transform: translateY(-130px);
+  }
+}
+
+#viewWeekly:checked ~ .plan_week {
+  display: block;
+  animation: slideUp-week 0.5s forwards;
+}
+@media (min-width: 1024px) {
+  #viewWeekly:checked ~ .plan_week {
+    animation: slideUpWide-week 0.5s forwards;
+  }
+}
+
+#viewToday:checked ~ .btn:nth-of-type(2) {
+  opacity: 0;
+  display: none;
+  position: fixed;
+}
+
+#viewWeekly:checked ~ .btn:nth-of-type(1) {
+  opacity: 0;
+  display: none;
+  position: fixed;
+}
+
+#viewWeekly:checked ~ .btn:nth-of-type(2) {
+  transform: translateY(-80px);
+}
+@media (min-width: 768px) {
+  #viewWeekly:checked ~ .btn:nth-of-type(2) {
+    transform: translateY(-100px);
+  }
+}
+@media (min-width: 1024px) {
+  #viewWeekly:checked ~ .btn:nth-of-type(2) {
+    transform: translateY(-160px);
+  }
+}
+
+#meals {
+  margin: 0 auto 30px;
+  padding: 35px 25px 25px;
+  position: relative;
+}
+#meals::before {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 10px;
+  background: white;
+}
+@media (min-width: 768px) {
+  #meals {
+    min-height: 200px;
+  }
+}
+@media (min-width: 1024px) {
+  #meals {
+    margin: 0 auto 50px;
+  }
+}
+
+#meals,
+.meals-weekly-container {
+  max-width: 350px;
+}
+
+#meals,
+.meals-weekly-container div {
+  border: 4px solid white;
+}
+
+.meals-weekly {
+  width: 100%;
+  min-height: 230px;
+  padding: 65px 20px 20px;
+}
+@media (min-width: 768px) {
+  .meals-weekly {
+    height: 250px;
+  }
+}
+@media (min-width: 1024px) {
+  .meals-weekly {
+    height: 310px;
+  }
+}
+
+.meals-weekly-container {
+  margin: 0 auto 40px;
+}
+@media (min-width: 768px) {
+  .meals-weekly-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    max-width: 100%;
+    margin: 0 auto 10px;
+  }
+}
+@media (min-width: 1024px) {
+  .meals-weekly-container {
+    max-width: 1300px;
+  }
+}
+.meals-weekly-container div {
+  margin-bottom: 20px;
+  position: relative;
+}
+@media (min-width: 768px) {
+  .meals-weekly-container div {
+    width: calc(100% / 2 - 20px);
+    margin: 0 10px 30px;
+  }
+}
+@media (min-width: 1024px) {
+  .meals-weekly-container div {
+    width: calc(100% / 4 - 20px);
+    margin: 0 10px 40px;
+  }
+}
+
+.plan_week-days {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #1e6cc5;
+  background-color: white;
+  width: 100%;
+  font-size: 1.4em;
+  font-weight: 700;
+  margin: 0;
+  padding: 8px;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+/* ========================================
+Overlay / Pop up
+=========================================== */
+.overlay {
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: rgba(8, 8, 8, 0.4);
+}
+
+.popUp, .overlay {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.popUp {
+  width: 90%;
+  max-width: 350px;
+  height: 150px;
+  background: #ececec;
+  flex-direction: column;
+  border-radius: 5px;
+  animation: appear 0.2s forwards;
+  transition: transform 0.5s, opacity 0.5s;
+}
+.popUp p {
+  font-size: 1.1rem;
+  color: #363636;
+}
+@media (min-width: 768px) {
+  .popUp {
+    height: 180px;
+  }
+}
+
+#name {
+  outline: none;
+  border: none;
+  background: #d7d7d7;
+  height: 30px;
+  width: 60%;
+  text-align: center;
+}
+
+.enter {
+  font-size: 0.9rem;
+  margin-top: 15px;
+  outline: none;
+}
+
+/*# sourceMappingURL=style.css.map */
